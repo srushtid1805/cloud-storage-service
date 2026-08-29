@@ -6,8 +6,12 @@ const app = express();
 const pool = require("./config/db");
 const supabase = require("./config/supabase");
 
+const authRoutes = require("./routes/authRoutes");
+
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 app.get("/api", (req, res) => {
   res.json({
