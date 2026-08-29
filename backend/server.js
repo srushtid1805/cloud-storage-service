@@ -7,11 +7,13 @@ const pool = require("./config/db");
 const supabase = require("./config/supabase");
 
 const authRoutes = require("./routes/authRoutes");
+const folderRoutes = require("./routes/folderRoutes");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/folders", folderRoutes);
 
 app.get("/api", (req, res) => {
   res.json({
