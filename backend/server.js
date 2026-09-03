@@ -8,12 +8,14 @@ const supabase = require("./config/supabase");
 
 const authRoutes = require("./routes/authRoutes");
 const folderRoutes = require("./routes/folderRoutes");
+const fileRoutes = require("./routes/fileRoutes");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/folders", folderRoutes);
+app.use("/api/files", fileRoutes);
 
 app.get("/api", (req, res) => {
   res.json({
